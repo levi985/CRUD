@@ -14,6 +14,16 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     text-align: center;
 }
+.cadastro-container {
+    max-width: 350px;
+    margin: 80px auto;
+    padding: 2rem;
+    background: #374151; /* Fundo Secundário (Cards, Inputs) */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
 .form-group {
     margin-bottom: 1.2rem;
     text-align: left;
@@ -24,6 +34,7 @@ label {
     font-weight: 500;
     color: #F9FAFB; /* Texto Principal */
 }
+input[type="text"],
 input[type="email"],
 input[type="password"] {
     width: 100%;
@@ -47,6 +58,20 @@ button[type="submit"] {
 }
 button[type="submit"]:hover {
     background: #4338CA; /* Indigo 700 */
+}
+.cadastro-link {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.cadastro-link a {
+    color: #818CF8; /* Cor Secundária */
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.cadastro-link a:hover {
+    text-decoration: underline;
 }
 .error-message {
     color: #EF4444; /* Feedback de Erro */
