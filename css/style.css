@@ -1,10 +1,17 @@
+/* Tema Escuro (Dark Mode) */
+body {
+    background-color: #1F2937; /* Fundo Principal */
+    color: #F9FAFB; /* Texto Principal */
+    font-family: Arial, sans-serif;
+}
+
 .login-container {
     max-width: 350px;
     margin: 80px auto;
     padding: 2rem;
-    background: #fff;
+    background: #374151; /* Fundo Secundário (Cards, Inputs) */
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     text-align: center;
 }
 .form-group {
@@ -15,20 +22,23 @@ label {
     display: block;
     margin-bottom: 0.3rem;
     font-weight: 500;
+    color: #F9FAFB; /* Texto Principal */
 }
 input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid #818CF8; /* Cor Secundária (Detalhes, bordas) */
     border-radius: 4px;
     font-size: 1rem;
+    background: #374151; /* Fundo Secundário (Cards, Inputs) */
+    color: #F9FAFB; /* Texto Principal */
 }
 button[type="submit"] {
     width: 100%;
     padding: 0.7rem;
-    background: #007bff;
-    color: #fff;
+    background: #4F46E5; /* Cor Primária (Botões, destaques) */
+    color: #F9FAFB; /* Texto Principal */
     border: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -36,10 +46,10 @@ button[type="submit"] {
     transition: background 0.2s;
 }
 button[type="submit"]:hover {
-    background: #0056b3;
+    background: #4338CA; /* Indigo 700 */
 }
 .error-message {
-    color: #d32f2f;
+    color: #EF4444; /* Feedback de Erro */
     margin-top: 0.7rem;
     font-size: 0.95rem;
     min-height: 1.2em;
