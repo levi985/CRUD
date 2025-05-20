@@ -6,15 +6,58 @@ if(localStorage.getItem('listausuarios')){
 }
 
 function cadastrar(){
-    let nome = document.querySelector('#nome').value;
-    let senha = document.querySelector('#password').value;
-    let email = document.querySelector('#email').value;
+    let nome = document.querySelector('#nome').value.trim();
+    let senha = document.querySelector('#password').value.trim();
+    let email = document.querySelector('#email').value.trim();
+
+    let nomeAviso = document.getElementById('nomeAviso');
+    let emailAviso = document.getElementById('emailAviso');
+    let senhaAviso = document.getElementById('senhaAviso');
+
+    
+    nomeAviso.innerHTML = '';
+    emailAviso.innerHTML = '';
+    senhaAviso.innerHTML = '';
+
+    let valido = true; 
+
+    
+
+    if (nome.length < 3) {
+        nomeAviso.innerHTML = 'Mínimo de 3 caractéres*';
+        valido = false;
+    }
+
+   
+    if (!email.includes('@') || !email.includes('.')) {
+        emailAviso.innerHTML = 'Por favor, insira um email válido*';
+        valido = false;
+    }
+
+    
+    if (senha.length < 6) {
+        senhaAviso.innerHTML = 'Mínimo de 6 caracteres*';
+        valido = false;
+    } else if (senha.includes(' ')) {
+        senhaAviso.innerHTML = 'A senha não pode conter espaços*';
+        valido = false;
+    } 
+
+    if (!valido) {
+        
+        return;
+    }
+
+
     let usuario = {
         nome:nome,
         senha:senha,
         email:email
     }
+    
     listausuarios.push(usuario)
     localStorage.setItem('listausuarios', JSON.stringify(listausuarios));
     console.log('Cadastrado com sucesso!!')
+
+    document.getElementById('cadastroForm').reset();
 }
