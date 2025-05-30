@@ -1,109 +1,117 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Verificar se já existe uma sessão ativa
-    const currentUser = localStorage.getItem('currentUser');
-    if (currentUser) {
+    const usuarioAtual = localStorage.getItem('usuarioAtual');
+    if (usuarioAtual) {
         window.location.href = 'listagem.html';
     }
 
-    const loginForm = document.getElementById('loginForm');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
-    const loginError = document.getElementById('loginError');
+    const formularioLogin = document.getElementById('loginForm');
+    const campoEmail = document.getElementById('email');
+    const campoSenha = document.getElementById('password');
+    const erroEmail = document.getElementById('emailError');
+    const erroSenha = document.getElementById('passwordError');
+    const erroLogin = document.getElementById('loginError');
 
     // Função para validar email
-    const validateEmail = (email) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+    const validarEmail = (email) => {
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regexEmail.test(email);
     };
 
     // Função para validar senha
-    const validatePassword = (password) => {
-        return password.length >= 6;
+    const validarSenha = (senha) => {
+        // Senha deve ter exatamente 6 números
+        const regexSenha = /^\d{6}$/;
+        return regexSenha.test(senha);
     };
 
     // Função para limpar mensagens de erro
-    const clearErrors = () => {
-        emailError.textContent = '';
-        passwordError.textContent = '';
-        loginError.textContent = '';
+    const limparErros = () => {
+        erroEmail.textContent = '';
+        erroSenha.textContent = '';
+        erroLogin.textContent = '';
     };
 
     // Função para exibir mensagem de erro
-    const showError = (element, message) => {
-        element.textContent = message;
+    const mostrarErro = (elemento, mensagem) => {
+        elemento.textContent = mensagem;
+        elemento.style.color = '#ff0000';
+        elemento.style.fontSize = '0.9em';
+        elemento.style.marginTop = '5px';
     };
 
     // Evento de submit do formulário
-    loginForm.addEventListener('submit', (e) => {
+    formularioLogin.addEventListener('submit', (e) => {
         e.preventDefault();
-        clearErrors();
+        limparErros();
 
-        const email = emailInput.value.trim();
-        const password = passwordInput.value.trim();
-        let isValid = true;
+        const email = campoEmail.value.trim();
+        const senha = campoSenha.value.trim();
+        let valido = true;
 
         // Validação do email
         if (!email) {
-            showError(emailError, 'E-mail é obrigatório');
-            isValid = false;
-        } else if (!validateEmail(email)) {
-            showError(emailError, 'E-mail inválido');
-            isValid = false;
+            mostrarErro(erroEmail, 'E-mail é obrigatório');
+            valido = false;
+        } else if (!validarEmail(email)) {
+            mostrarErro(erroEmail, 'E-mail inválido. Use um formato válido (ex: usuario@email.com)');
+            valido = false;
         }
 
         // Validação da senha
-        if (!password) {
-            showError(passwordError, 'Senha é obrigatória');
-            isValid = false;
-        } else if (!validatePassword(password)) {
-            showError(passwordError, 'Senha deve ter pelo menos 6 caracteres');
-            isValid = false;
+        if (!senha) {
+            mostrarErro(erroSenha, 'Senha é obrigatória');
+            valido = false;
+        } else if (!validarSenha(senha)) {
+            mostrarErro(erroSenha, 'A senha deve conter exatamente 6 números');
+            valido = false;
         }
 
-        if (isValid) {
+        if (valido) {
             // Buscar usuários no localStorage
-            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const usuarios = JSON.parse(localStorage.getItem('listausuarios')) || [];
             
             // Procurar usuário com email e senha correspondentes
-            const user = users.find(u => u.email === email && u.password === password);
+            const usuario = usuarios.find(u => u.email === email && u.senha === senha);
 
-            if (user) {
-                // Salvar dados da sessão
-                const sessionData = {
-                    id: user.id,
-                    email: user.email,
-                    name: user.name,
-                    loginTime: new Date().toISOString()
+            if (usuario) {
+                // Salvar dados da sessão com informações completas do usuário
+                const dadosSessao = {
+                    id: usuario.id,
+                    email: usuario.email,
+                    nome: usuario.nome,
+                    cpf: usuario.cpf,
+                    dataNascimento: usuario.dataNascimento,
+                    dataRegistro: usuario.dataRegistro,
+                    horarioLogin: new Date().toISOString()
                 };
-                localStorage.setItem('currentUser', JSON.stringify(sessionData));
+                localStorage.setItem('usuarioAtual', JSON.stringify(dadosSessao));
 
                 // Redirecionar para a página de listagem
                 window.location.href = 'listagem.html';
             } else {
-                showError(loginError, 'E-mail ou senha incorretos');
+                mostrarErro(erroLogin, 'E-mail ou senha incorretos. Verifique suas credenciais.');
             }
         }
     });
 
     // Validação em tempo real do email
-    emailInput.addEventListener('input', () => {
-        const email = emailInput.value.trim();
-        if (email && !validateEmail(email)) {
-            showError(emailError, 'E-mail inválido');
+    campoEmail.addEventListener('input', () => {
+        const email = campoEmail.value.trim();
+        if (email && !validarEmail(email)) {
+            mostrarErro(erroEmail, 'E-mail inválido. Use um formato válido (ex: usuario@email.com)');
         } else {
-            emailError.textContent = '';
+            erroEmail.textContent = '';
         }
     });
 
     // Validação em tempo real da senha
-    passwordInput.addEventListener('input', () => {
-        const password = passwordInput.value.trim();
-        if (password && !validatePassword(password)) {
-            showError(passwordError, 'Senha deve ter pelo menos 6 caracteres');
+    campoSenha.addEventListener('input', () => {
+        const senha = campoSenha.value.trim();
+        if (senha && !validarSenha(senha)) {
+            mostrarErro(erroSenha, 'A senha deve conter exatamente 6 números');
         } else {
-            passwordError.textContent = '';
+            erroSenha.textContent = '';
         }
     });
 });

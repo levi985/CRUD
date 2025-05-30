@@ -30,7 +30,7 @@ function cadastrar() {
         valido = false;
     }
 
-    if (!email.includes('@') || !email.includes('.')) {
+    if (!validarEmail(email)) {
         emailAviso.innerHTML = 'Por favor, insira um email válido*';
         valido = false;
     }
@@ -49,9 +49,9 @@ function cadastrar() {
         valido = false;
     }
 
-    const cpfNumerico = cpf.replace(/\D/g, ''); // Remove tudo que não for número
-    if (cpfNumerico.length !== 11) {
-        cpfAviso.innerHTML = 'CPF deve conter 11 números*';
+    const cpfNumerico = cpf.replace(/\D/g, '');
+    if (!validarCPF(cpfNumerico)) {
+        cpfAviso.innerHTML = 'CPF inválido*';
         valido = false;
     }
 
@@ -75,12 +75,27 @@ function cadastrar() {
         senha: senha,
         email: email,
         cpf: cpf,
-        dataNascimento: dataNascimento
+        dataNascimento: dataNascimento,
+        dataRegistro: new Date().toISOString()
     };
 
     listausuarios.push(usuario);
     localStorage.setItem('listausuarios', JSON.stringify(listausuarios));
-    console.log('Cadastrado com sucesso!!');
 
+    // Mostrar mensagem de sucesso
+    const mensagemSucesso = document.createElement('div');
+    mensagemSucesso.style.color = 'green';
+    mensagemSucesso.style.fontSize = '1.2em';
+    mensagemSucesso.style.marginTop = '20px';
+    mensagemSucesso.style.textAlign = 'center';
+    mensagemSucesso.innerHTML = 'Cadastro realizado com sucesso! Redirecionando para o login...';
+    document.querySelector('.cadastro-container').appendChild(mensagemSucesso);
+
+    // Limpar formulário
     document.getElementById('cadastroForm').reset();
+
+    // Redirecionar após 3 segundos
+    setTimeout(() => {
+        window.location.href = 'login.html';
+    }, 3000);
 }
