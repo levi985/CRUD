@@ -87,8 +87,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
                 localStorage.setItem('usuarioAtual', JSON.stringify(dadosSessao));
 
-                // Redirecionar para a página de listagem
-                window.location.href = 'listagem.html';
+                // Mostrar mensagem de sucesso
+                const mensagemSucesso = document.createElement('div');
+                mensagemSucesso.style.color = 'green';
+                mensagemSucesso.style.fontSize = '1.2em';
+                mensagemSucesso.style.marginTop = '20px';
+                mensagemSucesso.style.textAlign = 'center';
+                mensagemSucesso.innerHTML = 'Login realizado com sucesso! Redirecionando...';
+                document.querySelector('.login-container').appendChild(mensagemSucesso);
+
+                // Redirecionar para a página de listagem após 2 segundos
+                setTimeout(() => {
+                    window.location.href = 'listagem.html';
+                }, 2000);
             } else {
                 mostrarErro(erroLogin, 'E-mail ou senha incorretos. Verifique suas credenciais.');
             }
