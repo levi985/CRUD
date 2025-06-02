@@ -1,17 +1,20 @@
 /* Tema Escuro (Dark Mode) */
 body {
-    background-color: #1F2937; /* Fundo Principal */
-    color: #F9FAFB; /* Texto Principal */
+    background-color: #1F2937;
+    /* Fundo Principal */
+    color: #F9FAFB;
+    /* Texto Principal */
     font-family: Arial, sans-serif;
-} 
+}
 
+/*cadastro.html*/
 .cadastro-container {
     max-width: 400px;
     margin: 80px auto;
     padding: 2rem;
     background: #374151;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cadastro-container h2 {
@@ -27,7 +30,7 @@ body {
     padding: 2rem;
     background: #374151;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .login-container h2 {
@@ -82,7 +85,8 @@ body {
 }
 
 .aviso-error-message {
-    color: #ff4d4d; /* vermelho claro, visível no fundo escuro */
+    color: #ff4d4d;
+    /* vermelho claro, visível no fundo escuro */
     font-size: 0.85rem;
     font-weight: 500;
     margin-top: 4px;
@@ -162,7 +166,7 @@ body {
     background: #374151;
     border-radius: 8px;
     padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .info-card h3 {
@@ -191,11 +195,13 @@ body {
 }
 
 /* Feature Sections */
-.feature-section, .api-section {
+.feature-section,
+.api-section {
     margin-bottom: 3rem;
 }
 
-.feature-section h2, .api-section h2 {
+.feature-section h2,
+.api-section h2 {
     text-align: center;
     color: #F9FAFB;
     margin-bottom: 2rem;
@@ -214,12 +220,12 @@ body {
     padding: 1.5rem;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .feature-card h3 {
@@ -266,154 +272,265 @@ body {
     font-size: 0.9rem;
 }
 
-/* Aplica apenas para a página de listagem */
 .listagem {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #1F2937;
-  color: #e6edf3;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1F2937;
+    color: #e6edf3;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
 }
 
 .listagem .main-container {
-  background-color: #374151;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  max-width: 1200px;
+    background-color: #374151;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 1200px;
 }
 
 .listagem .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #1F2937;
-  padding: 15px 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1F2937;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .listagem .logout-button {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s ease;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .listagem .logout-button:hover {
-  background-color: #d32f2f;
+    background-color: #d32f2f;
 }
 
 .listagem .search-container {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .listagem .search-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .listagem .search-container input {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
-  background-color: #0d1117;
-  color: #e6edf3;
-  border: 1px solid #30363d;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    background-color: #0d1117;
+    color: #e6edf3;
+    border: 1px solid #30363d;
 }
+
 .listagem .table-container {
-  overflow-x: auto;
-  border-radius: 10px;
+    overflow-x: auto;
+    border-radius: 10px;
 }
 
 .listagem table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #1F2937;
-  border-radius: 10px;
-  overflow: hidden;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1F2937;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.listagem th, .listagem td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #161b22;
+.listagem th,
+.listagem td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #161b22;
 }
 
 .listagem thead th {
-  background-color: #161b22;
+    background-color: #161b22;
 }
 
 .listagem tr:nth-child(even) {
-  background-color: #374151;
+    background-color: #374151;
 }
 
 .listagem tr:hover {
-  background-color: #1F2937;
+    background-color: #1F2937;
 }
 
 .listagem button {
-  padding: 6px 12px;
-  margin-right: 6px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
+    padding: 6px 12px;
+    margin-right: 6px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .listagem button.editar {
-  background-color: #4caf50;
-  color: white;
+    background-color: #4caf50;
+    color: white;
 }
 
 .listagem button.excluir {
-  background-color: #f44336;
-  color: white;
+    background-color: #f44336;
+    color: white;
 }
 
 .listagem #totalUsuarios {
-  margin-top: 20px;
-  text-align: right;
-  font-size: 14px;
-  color: #8b949e;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 14px;
+    color: #8b949e;
 }
+
+/* Estilos gerais só para a página de perfil */
+body.perfil {
+    background-color: #1F2937;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    height: 150vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body.perfil .perfil-container {
+    background-color: #374151;
+    padding: 40px 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+body.perfil h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+body.perfil .form-group {
+    margin-bottom: 18px;
+}
+
+body.perfil label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+body.perfil input {
+     width: 95%;
+    padding: 0.75rem;
+    border: 1px solid #4B5563;
+    border-radius: 4px;
+    background: #1F2937;
+    color: #F9FAFB;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+body.perfil input:focus {
+    outline: 2px solid #6366f1;
+    
+}
+
+body.perfil .salvar-button {
+     width: 100%;
+    padding: 0.75rem;
+    background: #4F46E5;
+    color: #F9FAFB;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+     display: inline-block;
+}
+
+body.perfil .salvar-button:hover {
+    background-color: #4f46e5;
+}
+
+body.perfil .voltar-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+body.perfil .voltar-link a {
+    width: 100%;
+    padding: 0.75rem;
+    background: #4F46E5;
+    color: #F9FAFB;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+     display: inline-block;
+}
+
+body.perfil .voltar-link a:hover {
+    text-decoration: underline;
+}
+
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .home-container {
         padding: 1rem;
     }
-    
-    .card-grid, .info-cards {
+
+    .card-grid,
+    .info-cards {
         grid-template-columns: 1fr;
     }
-    
+
     .home-header h1 {
         font-size: 2rem;
     }
-    
-    .feature-section h2, .api-section h2, .project-info h2 {
+
+    .feature-section h2,
+    .api-section h2,
+    .project-info h2 {
         font-size: 1.5rem;
     }
 }
 
-/* Responsive adjustments for login */
+
 @media (max-width: 480px) {
     .login-container {
         margin: 40px 1rem;
         padding: 1.5rem;
+    }
+
+    body.perfil .perfil-container {
+        background-color: #1e293b;
+        padding: 40px 30px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 900px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     }
 }
