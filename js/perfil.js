@@ -1,5 +1,5 @@
 let listausuarios = JSON.parse(localStorage.getItem('listausuarios')) || [];
-let usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+let usuarioLogado = JSON.parse(localStorage.getItem('usuarioAtual'));
 
 if (!usuarioLogado) {
     alert('Você precisa estar logado.');
@@ -10,7 +10,7 @@ let usuario = listausuarios.find(u => u.email === usuarioLogado.email);
 
 if (!usuario) {
     alert('Usuário logado não encontrado na lista de usuários.');
-    localStorage.removeItem('usuarioLogado');
+    localStorage.removeItem('usuarioAtual');
     window.location.href = 'login.html';
 }
 
