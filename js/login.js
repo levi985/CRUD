@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 mensagemSucesso.innerHTML = 'Login realizado com sucesso! Redirecionando...';
                 document.querySelector('.login-container').appendChild(mensagemSucesso);
 
-                // Redirecionar para a página de perfil após 2 segundos
+                // Redirecionar para a página de listagem após 2 segundos
                 setTimeout(() => {
                     window.location.href = 'perfil.html';
                 }, 2000);
