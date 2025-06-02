@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Verificar se já existe uma sessão ativa
     const usuarioAtual = localStorage.getItem('usuarioAtual');
     if (usuarioAtual) {
-        window.location.href = 'listagem.html';
+        window.location.href = 'login.html';
     }
 
     const formularioLogin = document.getElementById('loginForm');
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Redirecionar para a página de listagem após 2 segundos
                 setTimeout(() => {
-                    window.location.href = 'listagem.html';
+                    window.location.href = 'perfil.html';
                 }, 2000);
             } else {
                 mostrarErro(erroLogin, 'E-mail ou senha incorretos. Verifique suas credenciais.');

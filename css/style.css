@@ -266,6 +266,131 @@ body {
     font-size: 0.9rem;
 }
 
+/* Aplica apenas para a página de listagem */
+.listagem {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1F2937;
+  color: #e6edf3;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+.listagem .main-container {
+  background-color: #374151;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.listagem .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1F2937;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.listagem .logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.listagem .logout-button:hover {
+  background-color: #d32f2f;
+}
+
+.listagem .search-container {
+  margin-bottom: 20px;
+}
+
+.listagem .search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.listagem .search-container input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  background-color: #0d1117;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+}
+.listagem .table-container {
+  overflow-x: auto;
+  border-radius: 10px;
+}
+
+.listagem table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1F2937;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.listagem th, .listagem td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #161b22;
+}
+
+.listagem thead th {
+  background-color: #161b22;
+}
+
+.listagem tr:nth-child(even) {
+  background-color: #374151;
+}
+
+.listagem tr:hover {
+  background-color: #1F2937;
+}
+
+.listagem button {
+  padding: 6px 12px;
+  margin-right: 6px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.listagem button.editar {
+  background-color: #4caf50;
+  color: white;
+}
+
+.listagem button.excluir {
+  background-color: #f44336;
+  color: white;
+}
+
+.listagem #totalUsuarios {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 14px;
+  color: #8b949e;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .home-container {
