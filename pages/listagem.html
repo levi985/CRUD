@@ -6,37 +6,36 @@
   <title>Listagem de Usuários</title>
   <link rel="stylesheet" href="../css/style.css" />
 </head>
-<body class="listagem">
-  <div class="main-container">
-    <div class="header">
-      <h2>Listagem de usuários cadastrados</h2>
-      <button onclick="fazerLogout()" class="logout-button">Sair</button>
-    </div>
+<body>
 
-    <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Buscar usuário por nome" oninput="filtrarUsuarios()" />
-    </div>
-
-    <div class="table-container">
-      <table id="userTable">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Senha</th>
-            <th>CPF</th>
-            <th>Data de Nascimento</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody id="userTableBody">
-          <!-- Linhas inseridas via JS -->
-        </tbody>
-      </table>
-    </div>
-
-    <div id="totalUsuarios">Total de usuários: 0</div>
+  <div class="header">
+    <h2>Listagem de usuários cadastrados</h2>
+    <button onclick="fazerLogout()" class="logout-button">Sair</button>
   </div>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Buscar usuário por nome" oninput="filtrarUsuarios()" />
+  </div>
+
+  <div class="table-container">
+    <table id="userTable">
+      <thead>
+        <tr>
+          <th style="width: 25%">Nome</th>
+          <th style="width: 25%">Email</th>
+          <th>Senha</th>
+          <th style="width: 10%">CPF</th>
+          <th style="width: 10%">Data de Nascimento</th>
+          <th style="width: 20%">Ações</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody">
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="totalUsuarios">Total de usuários: 0</div>
 
   <script src="../js/listagem.js"></script>
 </body>
