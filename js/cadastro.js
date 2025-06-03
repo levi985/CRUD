@@ -23,99 +23,82 @@ function cadastrar() {
     cpfAviso.innerHTML = '';
     dataAviso.innerHTML = '';
 
-    // Função para validar CPF
-function validarCPF(cpf) {
-    cpf = cpf.replace(/[^\d]/g, ''); // Remove caracteres não numéricos
+    function validarCPF(cpf) {
+        cpf = cpf.replace(/[^\d]/g, '');
+        if (cpf.length !== 11) return false;
+        if (/^(\d)\1{10}$/.test(cpf)) return false;
 
-    if (cpf.length !== 11) return false;
-
-    // Verifica se todos os dígitos são iguais
-    if (/^(\d)\1{10}$/.test(cpf)) return false;
-
-    // Validação do primeiro dígito verificador
-    let soma = 0;
-    for (let i = 0; i < 9; i++) {
-        soma += parseInt(cpf.charAt(i)) * (10 - i);
-    }
-    let resto = 11 - (soma % 11);
-    let digitoVerificador1 = resto > 9 ? 0 : resto;
-    if (digitoVerificador1 !== parseInt(cpf.charAt(9))) return false;
-
-    // Validação do segundo dígito verificador
-    soma = 0;
-    for (let i = 0; i < 10; i++) {
-        soma += parseInt(cpf.charAt(i)) * (11 - i);
-    }
-    resto = 11 - (soma % 11);
-    let digitoVerificador2 = resto > 9 ? 0 : resto;
-    if (digitoVerificador2 !== parseInt(cpf.charAt(10))) return false;
-
-    return true;
-}
-
-// Função para formatar CPF
-function formatarCPF(cpf) {
-    cpf = cpf.replace(/\D/g, '');
-    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-    return cpf;
-}
-
-// Função para validar email
-function validarEmail(email) {
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regexEmail.test(email);
-}
-
-// Adicionar validação em tempo real para CPF
-document.getElementById('cpf').addEventListener('input', function(e) {
-    let cpf = e.target.value;
-    let cpfAviso = document.getElementById('cpfAviso');
-    
-    // Formata o CPF enquanto digita
-    e.target.value = formatarCPF(cpf);
-    
-    // Remove a formatação para validação
-    cpf = cpf.replace(/\D/g, '');
-    
-    if (cpf.length === 11) {
-        if (validarCPF(cpf)) {
-            cpfAviso.innerHTML = 'CPF válido';
-            cpfAviso.style.color = 'green';
-        } else {
-            cpfAviso.innerHTML = 'CPF inválido';
-            cpfAviso.style.color = 'red';
+        let soma = 0;
+        for (let i = 0; i < 9; i++) {
+            soma += parseInt(cpf.charAt(i)) * (10 - i);
         }
-    } else {
-        cpfAviso.innerHTML = '';
-    }
-});
+        let resto = 11 - (soma % 11);
+        let digitoVerificador1 = resto > 9 ? 0 : resto;
+        if (digitoVerificador1 !== parseInt(cpf.charAt(9))) return false;
 
-// Adicionar validação em tempo real para email
-document.getElementById('email').addEventListener('input', function(e) {
-    let email = e.target.value;
-    let emailAviso = document.getElementById('emailAviso');
-    
-    if (email) {
-        if (validarEmail(email)) {
-            const emailJaExiste = listausuarios.some(usuario => usuario.email === email);
-            if (emailJaExiste) {
-                emailAviso.innerHTML = 'Este e-mail já está cadastrado';
-                emailAviso.style.color = 'red';
+        soma = 0;
+        for (let i = 0; i < 10; i++) {
+            soma += parseInt(cpf.charAt(i)) * (11 - i);
+        }
+        resto = 11 - (soma % 11);
+        let digitoVerificador2 = resto > 9 ? 0 : resto;
+        if (digitoVerificador2 !== parseInt(cpf.charAt(10))) return false;
+
+        return true;
+    }
+
+    function formatarCPF(cpf) {
+        cpf = cpf.replace(/\D/g, '');
+        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+        cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        return cpf;
+    }
+
+    function validarEmail(email) {
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regexEmail.test(email);
+    }
+
+    document.getElementById('cpf').addEventListener('input', function(e) {
+        let cpf = e.target.value;
+        let cpfAviso = document.getElementById('cpfAviso');
+        e.target.value = formatarCPF(cpf);
+        cpf = cpf.replace(/\D/g, '');
+        if (cpf.length === 11) {
+            if (validarCPF(cpf)) {
+                cpfAviso.innerHTML = 'CPF válido';
+                cpfAviso.style.color = 'green';
             } else {
-                emailAviso.innerHTML = 'E-mail válido';
-                emailAviso.style.color = 'green';
+                cpfAviso.innerHTML = 'CPF inválido';
+                cpfAviso.style.color = 'red';
             }
         } else {
-            emailAviso.innerHTML = 'E-mail inválido';
-            emailAviso.style.color = 'red';
+            cpfAviso.innerHTML = '';
         }
-    } else {
-        emailAviso.innerHTML = '';
-    }
-});
+    });
 
+    document.getElementById('email').addEventListener('input', function(e) {
+        let email = e.target.value;
+        let emailAviso = document.getElementById('emailAviso');
+        if (email) {
+            if (validarEmail(email)) {
+                const emailJaExiste = listausuarios.some(usuario => usuario.email === email);
+                if (emailJaExiste) {
+                    emailAviso.innerHTML = 'Este e-mail já está cadastrado';
+                    emailAviso.style.color = 'red';
+                } else {
+                    emailAviso.innerHTML = 'E-mail válido';
+                    emailAviso.style.color = 'green';
+                }
+            } else {
+                emailAviso.innerHTML = 'E-mail inválido';
+                emailAviso.style.color = 'red';
+            }
+        } else {
+            emailAviso.innerHTML = '';
+        }
+    });
 
     let valido = true;
 
@@ -176,7 +159,6 @@ document.getElementById('email').addEventListener('input', function(e) {
     listausuarios.push(usuario);
     localStorage.setItem('listausuarios', JSON.stringify(listausuarios));
 
-    // Mostrar mensagem de sucesso
     const mensagemSucesso = document.createElement('div');
     mensagemSucesso.style.color = 'green';
     mensagemSucesso.style.fontSize = '1.2em';
@@ -185,10 +167,8 @@ document.getElementById('email').addEventListener('input', function(e) {
     mensagemSucesso.innerHTML = 'Cadastro realizado com sucesso! Redirecionando para o login...';
     document.querySelector('.cadastro-container').appendChild(mensagemSucesso);
 
-    // Limpar formulário
     document.getElementById('cadastroForm').reset();
 
-    // Redirecionar após 3 segundos
     setTimeout(() => {
         window.location.href = 'login.html';
     }, 3000);
