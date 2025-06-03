@@ -1,4 +1,3 @@
-// Verificar se o usuário está logado
 function verificarLogin() {
     const usuarioAtual = localStorage.getItem('usuarioAtual');
     if (!usuarioAtual) {
@@ -8,14 +7,12 @@ function verificarLogin() {
     return true;
 }
 
-// Formatação de data padrão
 function formatarData(dataISO) {
     if (!dataISO) return "-";
     const [ano, mes, dia] = dataISO.split("-");
     return `${dia}/${mes}/${ano}`;
 }
 
-// Corpo da tabela
 function carregarUsuarios() {
     if (!verificarLogin()) return;
 
@@ -63,7 +60,6 @@ function carregarUsuarios() {
     document.getElementById("totalUsuarios").textContent = `Total de usuários: ${usuarios.length}`;
 }
 
-// Excluir usuário
 function excluirUsuario(index) {
     if (!verificarLogin()) return;
     
@@ -73,7 +69,6 @@ function excluirUsuario(index) {
     carregarUsuarios();
 }
 
-// Editar usuário
 function editarUsuario(index) {
     if (!verificarLogin()) return;
     
@@ -101,7 +96,6 @@ function editarUsuario(index) {
     }
 }
 
-// Filtrar usuários
 function filtrarUsuarios() {
     if (!verificarLogin()) return;
     
@@ -114,13 +108,11 @@ function filtrarUsuarios() {
     });
 }
 
-// Função para fazer logout
 function fazerLogout() {
     localStorage.removeItem('usuarioAtual');
     window.location.href = 'login.html';
 }
 
-// Iniciar página
 window.onload = () => {
     if (verificarLogin()) {
         carregarUsuarios();
