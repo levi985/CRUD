@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de CEP</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="api-container">
+        <h2>Consulta de CEP</h2>
+        
+        <div class="search-container">
+            <input type="text" id="cepInput" placeholder="Digite um CEP (somente números)" maxlength="8">
+            <button id="consultarCep" class="api-button">Consultar</button>
+        </div>
+        
+        <div id="resultado" class="result-container">
+            <div class="card" id="enderecoCard" style="display: none;">
+                <h3>Endereço Completo</h3>
+                <div id="enderecoInfo"></div>
+            </div>
+        </div>
+        
+        <div class="historico-container">
+            <h3>Histórico de Consultas</h3>
+            <div id="historicoList"></div>
+        </div>
+    </div>
+
+    <script src="../js/api.js"></script>
+</body>
+</html>
